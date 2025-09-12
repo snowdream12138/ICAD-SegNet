@@ -1,1 +1,1 @@
-Efficient and accurate segmentation of intracranial atherosclerotic plaque
+Efficient and accurate segmentation of intracranial atherosclerotic plaque.
