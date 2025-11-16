@@ -1,41 +1,7 @@
-# -*- coding: utf-8 -*-
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-
 import torch
 import torch.nn as nn
 
 from typing import Type
-
-# # 在 IMedSAM 中 common 的代码
-# # 输入特征：x_freq 是经过FFT变换和Patch Embedding后的频率特征。
-# # Adapter的作用是对已经提取的频率特征进行进一步处理和增强
-# class Adapter(nn.Module):
-#     def __init__(self, D_features, hidden_features=4, act_layer=nn.GELU, skip_connect=True):
-#         super().__init__()
-#         self.skip_connect = skip_connect
-#         D_hidden_features = int(hidden_features)
-#         self.act = act_layer()
-#         # 特征变换：通过两层全连接层（D_fc1 和 D_fc2）对输入特征进行非线性变换。
-#         self.D_fc1 = nn.Linear(D_features, D_hidden_features)
-#         self.D_fc2 = nn.Linear(D_hidden_features, D_features)
-#
-#     def forward(self, x):
-#         # x is (BT, HW+1, D)
-#         xs = self.D_fc1(x)
-#         xs = self.act(xs)
-#         xs = self.D_fc2(xs)
-#         # 特征融合：通过残差连接（skip_connect）将变换后的特征与原始特征融合。
-#         if self.skip_connect:
-#             x = x + xs
-#         else:
-#             x = xs
-#         return x
-
-
 class MLPBlock(nn.Module):
     def __init__(
         self,
